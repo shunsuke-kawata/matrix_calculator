@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style_calculate.css') }}">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <h1 id="calculate_title">要素入力</h1>
+        <form method="POST" action="/result" id = "form_app">
+            <h3>A行列</h3>
+            <p>{{ A_row | length }} × {{ A_column | length }} 行列</p>
+            {% for i in A_row %}
+                {% for j in A_column %}
+                    <label for= A_{{ i }}_{{ j }}>A[{{ i }}][{{ j }}]</label>
+                    <input class ="matrix_e" type="text" id= A_{{ i }}_{{ j }} name=A_{{ i }}_{{ j }} value={{ i+1 }}>
+                {% endfor %}
+                <br>
+            {% endfor %}
+            <br>
+            <h3>B行列</h3>
+            <p>{{ B_row | length }} × {{ B_column | length }} 行列</p>
+            {% for i in B_row %}
+                {% for j in B_column %}
+                    <label for= B_{{ i }}_{{ j }}>B[{{ i }}][{{ j }}]</label>
+                    <input class ="matrix_e" type="text" id= B_{{ i }}_{{ j }} name=B_{{ i }}_{{ j }} value={{ i+1 }}> 
+                {% endfor %}
+                <br>
+            {% endfor %}
+    
+            <input id ="A_r_len" name="A_r_len" style="visibility: hidden" type="text" value= {{ A_row | length }} >
+            <input id ="A_c_len" name="A_c_len" style="visibility: hidden" type="text" value= {{ A_column | length }}>
+            <input id ="B_r_len" name="B_r_len" style="visibility: hidden" type="text" value= {{ B_row | length }}>
+            <input id ="B_c_len" name="B_c_len" style="visibility: hidden" type="text" value= {{ B_column | length }}>
+            <br>
+            <input type="submit" name="sub_btn" value="計算" id="cal_btn">
+        </form>
+        <br>
+        <a href="/">前のページに戻る</a>
+       
+    </body>
+   
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script_calculate.js') }}"></script>
+</html>

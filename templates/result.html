@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style_result.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result_title">演算結果</h1>
+
+    {% for i in row_AB %}
+        {% for j in column_AB %}
+        <label for= B_{{ i }}_{{ j }}>AB[{{ i }}][{{ j }}]</label>
+        <input class ="matrix_e" type="text" id= B_{{ i }}_{{ j }} name=B_{{ i }}_{{ j }} value={{ matrix_AB[i][j] }} max="10000" min="-10000"> 
+        {% endfor %}
+        <br>
+    {% endfor %}
+
+    <br>
+    <a href="/">最初のページに戻る</a>
+</body>
+</html>

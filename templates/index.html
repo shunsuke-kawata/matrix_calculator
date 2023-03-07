@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style_index.css') }}">
+</head>
+<body>
+    <h1 id ="index_title">行列演算</h1>
+    <div id="row_column">
+        <form method="POST" action="/calculate" id = "form_app">
+
+            <label for="B_gyou">Aの行数</label>
+            <input type="number" name="A_row" id ="A_row" value="2" max="8" min="1">
+            <label for="B_retu">Aの列数</label>
+            <input type="number" name="A_column" id="A_column" value="2" max="8" min="1">
+
+            <br><br>
+
+            <label for="B_gyou">Bの行数</label>
+            <input type="number" name="B_row" id ="B_row" value="2" max="8" min="1">
+            <label for="B_retu">Bの列数</label>
+            <input type="number" name="B_column" id="B_column" value="2"  max="8" min="1">
+            <br><br>
+            <input type="submit" id="sub_btn" name="sub_btn" value="決定" onclick="return check()">
+
+            <br><br>
+
+        </form>
+    </div>
+
+</body>
+<script type="text/javascript" src="{{ url_for('static', filename='js/script_index.js') }}"></script>
+</html>
